@@ -15,7 +15,7 @@ type APIServer struct {
 	router *mux.Router
 }
 
-//new instance of api server
+//New instance of api server
 func New(config *Config) *APIServer {
 	return &APIServer{
 		config: config,
@@ -24,6 +24,7 @@ func New(config *Config) *APIServer {
 	}
 }
 
+//Start api server
 func (s *APIServer) Start() error {
 	if err := s.cofigureLogger(); err != nil {
 		return err

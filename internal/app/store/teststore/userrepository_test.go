@@ -1,29 +1,28 @@
-package store_test
+package teststore_test
 
 import (
 	"testing"
 
 	"github.com/M1crogravity/go-resapi/internal/app/model"
-	"github.com/M1crogravity/go-resapi/internal/store"
+	"github.com/M1crogravity/go-resapi/internal/app/store"
+	"github.com/M1crogravity/go-resapi/internal/app/store/teststore"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestUserRepository_Create(t *testing.T) {
-	s, tearDown := store.TestStore(t, databaseURL)
-	defer tearDown("users")
-	u, err := s.User().Create(model.TestUser(t))
+	s := teststore.New()
+	u := model.TestUser(t)
+	err := s.User().Create(u)
 
 	assert.NoError(t, err)
 	assert.NotNil(t, u)
 }
 
 func TestUserRepository_FindByEmail(t *testing.T) {
-	s, tearDown := store.TestStore(t, databaseURL)
-	defer tearDown("users")
-
+	s := teststore.New()
 	email := "user@example.com"
 	_, err := s.User().FindByEmail(email)
-	assert.Error(t, err)
+	assert.EqualError(t, err, store.ErrRecordNotFound.Error())
 
 	u := model.TestUser(t)
 	u.Email = email

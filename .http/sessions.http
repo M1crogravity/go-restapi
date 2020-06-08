@@ -1,0 +1,10 @@
+POST http://localhost:8080/sessions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "invalid@email.com",
+  "password": "password"
+}
+
+###

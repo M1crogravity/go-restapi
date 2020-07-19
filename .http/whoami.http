@@ -1,0 +1,7 @@
+GET http://localhost:8080/private/whoami
+Accept: application/json
+Content-Type: application/json
+Cookie: gopher_session=MTU5MjIxMzg5OHxEdi1CQkFFQ180SUFBUkFCRUFBQUh2LUNBQUVHYzNSeWFXNW5EQWtBQjNWelpYSmZhV1FEYVc1MEJBSUFBZz09fMsSIhg0V6MIN8jUk4I1HKiXas2t-ZkVhtvdad1f602U; Path=/; Expires=Wed, 15 Jul 2020 09:38:18 GMT; Max-Age=2592000
+Origin: google.com
+
+###
